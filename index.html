@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>STS Bracket Challenge 2023</title>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    td {
+      text-align:center;
+      
+    }
+    tr { border: none; }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .pool {
+        border: 1px;
+      border-color: black;
+        border-right: solid 2px #000; 
+        border-left: solid 2px #000;}
+    th.pool{
+        border-bottom: solid 2px #000;
+    }
+    .yellow {
+        background-color: #F8D42C;
+        font-weight: bold;
+    }
+    .red {
+        background-color: red;
+        font-weight: bold;
+        width: 23px;
+    }
+    .green {
+        background-color: green;
+        font-weight: bold;
+        width: 23px;
+    }
+    .gray {
+        background-color: lightgray;
+        width: 23px;
+    }
+    .left_top {
+        border-bottom: solid 2px #000;
+        vertical-align: bottom;
+        width: 10%;
+    }
+    .left_bottom {
+        border-bottom: solid 2px #000;
+        border-right: solid 2px #000;
+        vertical-align: bottom;
+        width: 10%;
+    }
+    .right_top {
+        border-bottom: solid 2px #000;
+        vertical-align: bottom;
+        width: 10%;
+    }
+    .right_bottom {
+        border-bottom: solid 2px #000;
+        border-left: solid 2px #000;
+        vertical-align: bottom;
+        width: 10%;
+    }
+    .seed {
+        width: 5%;
+    }
+    .bracket_button {
+        background-color: white;
+        border: 0px;
+        width: 100%;
+    }
+    .champion {
+        font-weight: 800;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: justify;
+        align-items: center;
+        width: 100%;
+    }
+    .link {
+        float: right;
+    }
+    h1, h2 {
+        display: inline-block;
+    }
+    a {
+        font-weight: 600;
+        text-decoration: none;
+        color: #F8D42C;
+        -webkit-text-stroke: 1px black;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<body onload="onload()">
+        <h1>STS Bracket Challenge 2023</h1>
+        <h1 class="link">
+            <a href="https://docs.google.com/spreadsheets/d/1ncVEwodL4OrgMLELxyd_9gpP2i0d0ldo2FWLlj3NeW0/edit?rm=minimal#gid=1462296877">
+                View Leaderboard
+            </a>
+        </h1>
+    <table>
+        <tr>
+            <th class="pool">Pool A</th>
+            <th class="pool">Pool B</th>
+            <th class="pool">Pool C</th>
+            <th class="pool">Pool D</th>
+        </tr>
+        <tr>
+            <td class="pool">
+                <table>
+                    <tr><td><span id="A1">Rogue</span></td><td><button class="gray">-</button></td><td><button class="red" id="A1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="A2">Critical Hit</span></td><td><button class="green" id="A2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="A3">Bot House</span></td><td><button class="green" id="A3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="A4">Frag/Oswalt</span></td><td><button class="green" id="A4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                </table>
+            </td>
+            <td class="pool">
+                <table>
+                    <tr><td><span id="B1">InSystem</span></td><td><button class="gray">-</button></td><td><button class="red" id="B1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="B2">Spotless</span></td><td><button class="green" id="B2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="B3">Cigar Boys</span></td><td><button class="green" id="B3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="B4">The Prince</span></td><td><button class="green" id="B4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                </table>
+            </td>
+            <td class="pool">
+                <table>
+                    <tr><td><span id="C1">Bad Combo</span></td><td><button class="gray">-</button></td><td><button class="red" id="C1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="C2">Judgment Day</span></td><td><button class="green" id="C2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="C3">Mermaid Sparkle</span></td><td><button class="green" id="C3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="C4">Profit Boost</span></td><td><button class="green" id="C4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                </table>
+            </td>
+            <td class="pool">
+                <table>
+                    <tr><td><span id="D1">Assistive Touch</span></td><td><button class="gray">-</button></td><td><button class="red" id="D1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="D2">E/S</span></td><td><button class="green" id="D2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="D3">Kingdom Come</span></td><td><button class="green" id="D3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td><span id="D4">RCG Powerline</span></td><td><button class="green" id="D4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table id="bracket">
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT1"></button></td>
+            <td rowspan="3" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT9"></button></td>
+            <td rowspan="5" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT13"></button></td>
+            <td rowspan="7" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT15"></button></td>
+            <td rowspan="9" class="left_top"><button class="bracket_button champion" id="MT16"></button></td>
+            <td rowspan="11" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB15"></button></td>
+            <td rowspan="5" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT14"></button></td>
+            <td rowspan="3" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT11"></button></td>
+            <td rowspan="2" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT5"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">A1</td>
+            <td class="seed">B1</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB1"></button></td>
+            <td rowspan="2" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB5"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">D4</td>
+            <td rowspan="4" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB9"></button></td>
+            <td rowspan="4" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB11"></button></td>
+            <td class="seed">C4</td>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT2"></button></td>
+            <td rowspan="2" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT6"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">B2</td>
+            <td rowspan="8" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB13"></button></td>
+            <td rowspan="8" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB14"></button></td>
+            <td class="seed">A2</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB2"></button></td>
+            <td rowspan="2" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB6"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">D3</td>
+            <td rowspan="4" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT10"></button></td>
+            <td rowspan="0"></td>
+            <td rowspan="4" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT12"></button></td>
+            <td class="seed">C3</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT3"></button></td>
+            <td rowspan="2" class="right_top" ><button class="bracket_button" onclick="bracket_onclick(this)" id="MT7"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">D1</td>
+            <td rowspan="3" class="seed"></td>
+            <td class="seed">C1</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB3"></button></td>
+            <td rowspan="2" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB7"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">A4</td>
+            <td rowspan="4" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB10"></button></td>
+            <td rowspan="0"></td>
+            <td rowspan="4" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB12"></button></td>
+            <td class="seed">B4</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT4"></button></td>
+            <td class="seed">Submission Name:</td>
+            <td rowspan="2" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT8"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">C2</td>
+            <td rowspan="0"></td>
+            <td class="seed" rowspan="2"><input type="text" id="submission_name" name="submission_name" style="width:100%"></td>
+            <td rowspan="0"></td>
+            <td class="seed">D2</td>
+        </tr>
+        <tr>
+            <td class="seed">&nbsp;</td>
+            <td rowspan="2" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB4"></button></td>
+            <td rowspan="2" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB8"></button></td>
+            <td class="seed">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="seed">B3</td>
+            <td rowspan="0"></td>
+            <td class="seed"><button class="yellow" onclick="submit_onclick()">Submit</button></td>
+            <td rowspan="0"></td>
+            <td class="seed">A3</td>
+        </tr>
+    </table>
+</body>
