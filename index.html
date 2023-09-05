@@ -15,6 +15,10 @@
         width: 100%;
         border-collapse: collapse;
     }
+    button {
+        color: black;
+        text-align: center;
+    }
     .pool {
         border: 1px;
       border-color: black;
@@ -95,6 +99,10 @@
     }
     a:hover {
         text-decoration: underline;
+    }
+    td {
+        border-width: 2px;
+        border-color: #000;
     }
 </style>
 <body onload="onload()">
@@ -197,7 +205,7 @@
         <tr>
             <td class="seed">D3</td>
             <td rowspan="4" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT10"></button></td>
-            <td rowspan="0"></td>
+            <td rowspan="9", class="blank"></td>
             <td rowspan="4" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT12"></button></td>
             <td class="seed">C3</td>
         </tr>
@@ -221,22 +229,22 @@
         <tr>
             <td class="seed">A4</td>
             <td rowspan="4" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB10"></button></td>
-            <td rowspan="0"></td>
+            <td rowspan="5", class="blank"></td>
             <td rowspan="4" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB12"></button></td>
             <td class="seed">B4</td>
         </tr>
         <tr>
             <td class="seed">&nbsp;</td>
             <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT4"></button></td>
-            <td class="seed">Submission Name:</td>
+            <td class="blank">Submission Name:</td>
             <td rowspan="2" class="right_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT8"></button></td>
             <td class="seed">&nbsp;</td>
         </tr>
         <tr>
             <td class="seed">C2</td>
-            <td rowspan="0"></td>
+            <td rowspan="3", class="blank"></td>
             <td class="seed" rowspan="2"><input type="text" id="submission_name" name="submission_name" style="width:100%"></td>
-            <td rowspan="0"></td>
+            <td rowspan="3", class="blank"></td>
             <td class="seed">D2</td>
         </tr>
         <tr>
@@ -247,9 +255,9 @@
         </tr>
         <tr>
             <td class="seed">B3</td>
-            <td rowspan="0"></td>
+            <td rowspan="1", class="blank"></td>
             <td class="seed"><button class="yellow" onclick="submit_onclick()">Submit</button></td>
-            <td rowspan="0"></td>
+            <td rowspan="1", class="blank"></td>
             <td class="seed">A3</td>
         </tr>
     </table>
