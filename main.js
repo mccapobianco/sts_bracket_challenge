@@ -1,8 +1,8 @@
 var pools = {'A':[1,2,3,4], 'B':[1,2,3,4], 'C':[1,2,3,4], 'D':[1,2,3,4]};
 const seed_slots = {'A1':'MT1', 'A2':'MT6', 'A3':'MB8', 'A4':'MB3',
                     'B1':'MT5', 'B2':'MT2', 'B3':'MB4', 'B4':'MB7',
-                    'C1':'MT7', 'C2':'MT4', 'C3':'MB6', 'C4':'MB5',
-                    'D1':'MT3', 'D2':'MT8', 'D3':'MB2', 'D4':'MB1'};
+                    'C1':'MT7', 'C2':'MT4', 'C3':'MB6', 'C4':'MB1',
+                    'D1':'MT3', 'D2':'MT8', 'D3':'MB2', 'D4':'MB5'};
 var bracket_matches = Object.fromEntries( [...Array(15).keys()].map( x => [x+1, null]) );;
 
 function fill_bracket(){
@@ -20,31 +20,38 @@ function clear_path(button){
     }
     var next_tb = match % 2 ? 'T' : 'B';
     var next_button = document.getElementById(`M${next_tb}${next_match}`);
-    var next_filled = next_button.innerHTML.length > 0;
+    // var next_filled = next_button.innerHTML.length > 0;
+    var next_filled = next_button.innerHTML == button.innerHTML;
+    // var next_filled = original_fontWeight == 800;
     if (next_filled){
+        clear_path(next_button);
         next_button.style.fontWeight = 400;
         next_button.innerHTML = '';
         bracket_matches[match] = null;
-        clear_path(next_button);
     }
 }
 
 function bracket_onclick(button){
-    if (button.innerHTML.length == 0){return}
+    if (button.innerHTML.length == 0){return;}
+    if (button.style.fontWeight == 800){
+        clear_path(button);
+        button.style.fontWeight = 400;
+        return;
+    }
     var original_fontWeight = button.style.fontWeight;
     button.style.fontWeight = 800;
     var tb = button.id.slice(1,2);
     var match = parseInt(button.id.slice(2));
     var opponent_button = document.getElementById(`M${tb=='T'?'B':'T'}${match}`);
     opponent_button.style.fontWeight = 400;
-    bracket_matches[match] = tb == 'T' ? 1 : 0;
     var next_match = Math.ceil(match/2) + 8;
     var next_tb = match % 2 ? 'T' : 'B';
     var next_button = document.getElementById(`M${next_tb}${next_match}`);
     var next_filled = next_button.style.fontWeight == 800;
     if (next_filled && original_fontWeight!=800){
-        clear_path(next_button);
+        clear_path(opponent_button);
     }
+    bracket_matches[match] = tb == 'T' ? 1 : 0;
     next_button.innerHTML = button.innerHTML;
 }
 

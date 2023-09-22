@@ -84,7 +84,7 @@
     }
     .bracket_button {
         background-color: white;
-        border: 0px;
+        border: 0;
         width: 100%;
     }
     .champion {
@@ -118,7 +118,7 @@
     }
 </style>
 <body onload="onload()">
-        <h1><u>STS Bracket Challenge 2023</u></h1>
+        <h1>STS Bracket Challenge 2023</h1>
         <h1 class="link">
             <a href="https://docs.google.com/spreadsheets/d/1ncVEwodL4OrgMLELxyd_9gpP2i0d0ldo2FWLlj3NeW0/edit?rm=minimal#gid=1462296877">
                 View Leaderboard
@@ -134,34 +134,34 @@
         <tr>
             <td class="pool">
                 <table>
-                    <tr><td><span id="A1">Rogue</span></td><td><button class="gray">-</button></td><td><button class="red" id="A1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="A2">Critical Hit</span></td><td><button class="green" id="A2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="A3">Bot House</span></td><td><button class="green" id="A3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="A4">Frag/Oswalt</span></td><td><button class="green" id="A4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                    <tr><td>1</td><td><span id="A1">Rogue</span></td><td><button class="gray">-</button></td><td><button class="red" id="A1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>2</td><td><span id="A2">Critical Hit</span></td><td><button class="green" id="A2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>3</td><td><span id="A3">Bot House</span></td><td><button class="green" id="A3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="A3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>4</td><td><span id="A4">Guachos</span></td><td><button class="green" id="A4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
                 </table>
             </td>
             <td class="pool">
                 <table>
-                    <tr><td><span id="B1">InSystem</span></td><td><button class="gray">-</button></td><td><button class="red" id="B1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="B2">Spotless</span></td><td><button class="green" id="B2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="B3">Cigar Boys</span></td><td><button class="green" id="B3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="B4">The Prince</span></td><td><button class="green" id="B4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                    <tr><td>1</td><td><span id="B1">Insystem</span></td><td><button class="gray">-</button></td><td><button class="red" id="B1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>2</td><td><span id="B2">Spotless</span></td><td><button class="green" id="B2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>3</td><td><span id="B3">Cigar Boys</span></td><td><button class="green" id="B3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="B3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>4</td><td><span id="B4">The Prince</span></td><td><button class="green" id="B4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
                 </table>
             </td>
             <td class="pool">
                 <table>
-                    <tr><td><span id="C1">Bad Combo</span></td><td><button class="gray">-</button></td><td><button class="red" id="C1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="C2">Judgment Day</span></td><td><button class="green" id="C2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="C3">Mermaid Sparkle</span></td><td><button class="green" id="C3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="C4">Profit Boost</span></td><td><button class="green" id="C4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                    <tr><td>1</td><td><span id="C1">Bad Combo</span></td><td><button class="gray">-</button></td><td><button class="red" id="C1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>2</td><td><span id="C2">Judgment Day</span></td><td><button class="green" id="C2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>3</td><td><span id="C3">Mermaid Sparkle</span></td><td><button class="green" id="C3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="C3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>4</td><td><span id="C4">Profit Boost</span></td><td><button class="green" id="C4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
                 </table>
             </td>
             <td class="pool">
                 <table>
-                    <tr><td><span id="D1">Assistive Touch</span></td><td><button class="gray">-</button></td><td><button class="red" id="D1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="D2">E/S</span></td><td><button class="green" id="D2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="D3">Kingdom Come</span></td><td><button class="green" id="D3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
-                    <tr><td><span id="D4">RCG Powerline</span></td><td><button class="green" id="D4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
+                    <tr><td>1</td><td><span id="D1">Assistive Touch</span></td><td><button class="gray">-</button></td><td><button class="red" id="D1d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>2</td><td><span id="D2">E/S</span></td><td><button class="green" id="D2u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D2d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>3</td><td><span id="D3">Kingdom Come</span></td><td><button class="green" id="D3u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="red" id="D3d" onclick="pool_onclick(this)">&darr;</button></td></tr>
+                    <tr><td>4</td><td><span id="D4">RCG Powerline</span></td><td><button class="green" id="D4u" onclick="pool_onclick(this)">&uarr;</button></td><td><button class="gray">-</button></td></tr>
                 </table>
             </td>
         </tr>
@@ -192,10 +192,10 @@
             <td class="seed">&nbsp;</td>
         </tr>
         <tr>
-            <td class="seed">D4</td>
+            <td class="seed">C4</td>
             <td rowspan="4" class="left_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB9"></button></td>
             <td rowspan="4" class="right_bottom"><button class="bracket_button" onclick="bracket_onclick(this)" id="MB11"></button></td>
-            <td class="seed">C4</td>
+            <td class="seed">D4</td>
         <tr>
             <td class="seed">&nbsp;</td>
             <td rowspan="2" class="left_top"><button class="bracket_button" onclick="bracket_onclick(this)" id="MT2"></button></td>
