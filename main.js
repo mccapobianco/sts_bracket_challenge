@@ -3,7 +3,7 @@ const seed_slots = {'A1':'MT1', 'A2':'MT6', 'A3':'MB8', 'A4':'MB3',
                     'B1':'MT5', 'B2':'MT2', 'B3':'MB4', 'B4':'MB7',
                     'C1':'MT7', 'C2':'MT4', 'C3':'MB6', 'C4':'MB1',
                     'D1':'MT3', 'D2':'MT8', 'D3':'MB2', 'D4':'MB5'};
-var bracket_matches = Object.fromEntries( [...Array(15).keys()].map( x => [x+1, null]) );;
+var bracket_matches = Object.fromEntries( [...Array(15).keys()].map( x => [x+1, null]) );
 
 function fill_bracket(){
     for (const [key, value] of Object.entries(seed_slots)){
@@ -53,6 +53,8 @@ function bracket_onclick(button){
     }
     bracket_matches[match] = tb == 'T' ? 1 : 0;
     next_button.innerHTML = button.innerHTML;
+    var submit_button = document.getElementById("submit");
+    submit_button.style.backgroundColor = '#F8D42C';
 }
 
 function pool_onclick(button){
@@ -80,10 +82,16 @@ function pool_onclick(button){
     temp = pools[pool][swap_team-1];
     pools[pool][swap_team-1] = pools[pool][team-1];
     pools[pool][team-1] = temp;
-
+    var submit_button = document.getElementById("submit");
+    submit_button.style.backgroundColor = '#F8D42C';
 }
 
 function submit_onclick(){
+    var submit_button = document.getElementById("submit");
+    if (submit_button.style.backgroundColor == 'gray'){
+        window.alert('This bracket has already been submitted.')
+        return;
+    }
     var name = document.getElementById('submission_name').value;
     if (name.trim().length == 0){
         window.alert('Submission needs a name.');
@@ -96,8 +104,9 @@ function submit_onclick(){
     var encoded_sub = encode_submission(pools, bracket_matches);
     var url = `https://docs.google.com/forms/d/e/1FAIpQLSf0gQz7wwTJ82u2bFgm4My3Bp1_uyPAS5cMRKp6BU4JGmUErw/formResponse?submit=Submit?usp=pp_url&entry.981223668=${name}&entry.84234487=${encoded_sub}`;
     url = encodeURI(url);
-    $.post(url)
-    window.alert('Done. View the leaderboard to ensure your bracket has been submitted properly.')
+    $.post(url);
+    submit_button.style.backgroundColor = 'gray';
+    window.alert('Done. View the leaderboard to ensure your bracket has been submitted properly.');
 }
 
 function encode_submission(pools, bracket){
