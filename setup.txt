@@ -1,0 +1,15 @@
+Steps to create new page each year
+
+- Copy google sheet
+- Copy HTML file from previous year
+- Change titles in HTML
+- Replace sheet id in the link inside <h1 class="leaderboard">
+- Uncomment and run deleteSubmissions in Apps Script
+- Delete values in Points tab (leave top row)
+- Add trigger for On Form Submit in Apps Script
+- Copy google form id into submit_onclick 
+    - go to Tools -> Manage form -> Edit Form
+    - get form id from prefilled link
+- Change team names in HTML
+- Change team names in Pools tab
+- Clear dropdowns in Key tab

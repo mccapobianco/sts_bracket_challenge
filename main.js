@@ -86,7 +86,7 @@ function pool_onclick(button){
     submit_button.style.backgroundColor = '#F8D42C';
 }
 
-function submit_onclick(){
+function submit_onclick(form_id){
     var submit_button = document.getElementById("submit");
     if (submit_button.style.backgroundColor == 'gray'){
         window.alert('This bracket has already been submitted.')
@@ -102,7 +102,8 @@ function submit_onclick(){
         return;
     }
     var encoded_sub = encode_submission(pools, bracket_matches);
-    var url = `https://docs.google.com/forms/d/e/1FAIpQLSf0gQz7wwTJ82u2bFgm4My3Bp1_uyPAS5cMRKp6BU4JGmUErw/formResponse?submit=Submit?usp=pp_url&entry.981223668=${name}&entry.84234487=${encoded_sub}`;
+    // var url_old = `https://docs.google.com/forms/d/e/1FAIpQLSf0gQz7wwTJ82u2bFgm4My3Bp1_uyPAS5cMRKp6BU4JGmUErw/formResponse?submit=Submit?usp=pp_url&entry.981223668=${name}&entry.84234487=${encoded_sub}`;
+    var url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?submit=Submit?usp=pp_url&entry.981223668=${name}&entry.84234487=${encoded_sub}`;
     url = encodeURI(url);
     $.post(url);
     submit_button.style.backgroundColor = 'gray';
